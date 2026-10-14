@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo tipo pared de galería: dos gradientes superpuestos */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at 20% 20%, #f7d9c4 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, #c4d7f7 0%, transparent 40%),
+    #2b2430;
+  font-family: 'Lora', serif;
+}
+
+/* Marco de cuadro: borde + outline + sombra interior y exterior */
+.ficha {
+  position: relative;
+  width: 460px;
+  padding: 22px;
+  background: linear-gradient(145deg, #fdf6e3, #f1e4c3);
+  border: 10px solid #6b4423;
+  outline: 3px solid #c9a24d;
+  outline-offset: -18px;
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 25px rgba(107, 68, 35, 0.35),
+    0 20px 45px rgba(0, 0, 0, 0.5);
+  color: #3b2a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.ficha:hover {
+  transform: rotate(-1.5deg) scale(1.03);
+  box-shadow:
+    inset 0 0 25px rgba(107, 68, 35, 0.35),
+    0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Sello de cera en la esquina */
+.sello {
+  position: absolute;
+  top: -26px;
+  right: -26px;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #e0525e, #8e1b2a);
+  color: #fdf6e3;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.ficha:hover .sello {
+  transform: rotate(20deg);
+}
+
+.ficha__encabezado {
+  padding: 8px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 2px double #c9a24d;
+}
+
+/* Foto a la izquierda, datos a la derecha */
+.ficha__info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 8px 12px;
+}
+
+/* Círculo con doble aro */
+.ficha__info img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #fdf6e3;
+  box-shadow: 0 0 0 4px #c9a24d, 0 8px 18px rgba(0, 0, 0, 0.35);
+  filter: sepia(0.4);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.ficha__info img:hover {
+  filter: sepia(0);
+  transform: scale(1.06);
+}
+
+.ficha__datos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.ficha__datos h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #8e1b2a;
+}
+
+.ficha__datos i {
+  width: 22px;
+  color: #c9a24d;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.ficha__datos p:hover i {
+  color: #8e1b2a;
+  transform: rotate(-15deg) scale(1.25);
+}
+
+.ficha__pie {
+  padding-top: 10px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  border-top: 2px double #c9a24d;
+}
